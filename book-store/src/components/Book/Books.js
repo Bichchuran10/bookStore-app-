@@ -9,9 +9,10 @@ const fetchHandler= async()=>{
 
 const Books = () => {
     const [books,setBooks] = useState()
+    const [refresh,setRefresh]=useState(false)
     useEffect(() => { 
         fetchHandler().then((data)=>setBooks(data.books))
-    },[]); 
+    },[refresh]); 
     console.log(books)
     
   return (
@@ -21,7 +22,7 @@ const Books = () => {
              books.map((book,i)=>(
                 <li className="book" key={i}>
 
-                    <Book book={book}/>
+                    <Book book={book} refresh={refresh} setRefresh={setRefresh}/>
 
                 </li>
 

@@ -8,13 +8,15 @@ const Book = (props) => {
 
     const history=useNavigate()
     const {_id,name,author,description,price,image}=props.book;
+    const {refresh,setRefresh}=props
 
     const deleteHandler=async()=>{
       await axios
       .delete(`http://localhost:5000/books/${_id}`)
       .then(res=>res.data)
-      .then(()=>history("/"))
-      .then(()=>history("/books"));
+      setRefresh(!refresh)
+      // .then(()=>history("/"))
+      // .then(()=>history("/books"));
     };
   return (
   <div className="card">
