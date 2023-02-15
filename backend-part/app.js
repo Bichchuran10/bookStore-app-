@@ -3,9 +3,11 @@ const mongoose=require('mongoose')
 
 const app=express()
 const router=require('./routes/book-routes')
+const cors=require('cors')
 
 //Middlewares
 app.use(express.json())
+app.use(cors())
 app.use("/books",router) 
 
 mongoose

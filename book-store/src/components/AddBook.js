@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 const AddBook = () => {
   const history=useNavigate()
 
-  const [inputs, setinputs] = useState({
+  const [inputs, setInputs] = useState({
     name: '',
     description: '',
     price: '',
@@ -15,7 +15,7 @@ const AddBook = () => {
   });
 const [checked, setChecked] = useState(false)
 const handleChange=(e)=>{
-  setinputs((prevState)=>({
+  setInputs((prevState)=>({
     ...prevState,
     [e.target.name]:e.target.value
 
